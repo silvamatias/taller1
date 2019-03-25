@@ -2,7 +2,20 @@
   <div class="container">
     <div class="row">
 
-      <p>No alcance a hacer el buscador :( </p>
+<% @lista_res.each do |f| %>
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+
+      <div class="caption">
+        <h4><%= f[0] %></h4>
+        <p><%= f[2] %></p>
+        <p><a href="/<%=f[2]%>/<%=f[1]%>" class="btn btn-primary" role="button">More Info</a></p>
+      </div>
+    </div>
+  </div>
+    <% end %>
+
 
 
 </div>

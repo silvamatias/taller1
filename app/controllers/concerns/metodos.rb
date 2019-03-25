@@ -35,6 +35,44 @@ module Metodos
 	end 
 
 
+	def searching(keyword)
+		lista_res = []
+
+		res_films = HTTParty.get('https://swapi.co/api/films/?search='+keyword.to_s, :headers => {'Content-Type' => 'application/json'}).body
+		films = JSON.parse(res_films)["results"]
+		films.each do |film|
+			film_id = get_id(film["url"])
+			found = [film["title"],film_id,"films"]
+			lista_res << found
+		end
+
+		res_starships = HTTParty.get('https://swapi.co/api/starships/?search='+keyword.to_s, :headers => {'Content-Type' => 'application/json'}).body
+		starships = JSON.parse(res_starships)["results"]
+		starships.each do |starship|
+			starship_id = get_id(starship["url"])
+			found = [starship["name"],starship_id,"starship"]
+			lista_res << found
+		end
+
+		res_char = HTTParty.get('https://swapi.co/api/people/?search='+keyword.to_s, :headers => {'Content-Type' => 'application/json'}).body
+		chars = JSON.parse(res_char)["results"]
+		chars.each do |char|
+			char_id = get_id(char["url"])
+			found = [char["name"],char_id,"people"]
+			lista_res << found
+		end
+
+		res_planets = HTTParty.get('https://swapi.co/api/planets/?search='+keyword.to_s, :headers => {'Content-Type' => 'application/json'}).body
+		planets = JSON.parse(res_planets)["results"]
+		planets.each do |planet|
+			planet_id = get_id(planet["url"])
+			found = [planet["name"],planet_id,"planets"]
+			lista_res << found
+		end
+
+		return lista_res
+
+	end
 
 end 
 
