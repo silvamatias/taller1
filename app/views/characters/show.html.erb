@@ -1,23 +1,3 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Star Wars Movies</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-   
-
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
 
 
 
@@ -25,34 +5,34 @@
   <div class="container">
 
 
-		<p>Name: <%= @character["name"] %></p>
-		<p>Birth year: <%= @character["birth_year"] %></p>
-		<p>Eye color: <%= @character["eye_color"] %></p>
-		<p>Gender: <%= @character["gender"] %></p>
-		<p>Hair color: <%= @character["hair_color"] %></p>
-		<p>Height: <%= @character["height"] %></p>
-		<p>Mass: <%= @character["mass"] %></p>
-		<p>Skin color: <%= @character["skin_color"] %></p>
+		<p><b>Name:</b> <%= @character["name"] %></p>
+		<p><b>Birth year:</b> <%= @character["birth_year"] %></p>
+		<p><b>Eye color:</b> <%= @character["eye_color"] %></p>
+		<p><b>Gender:</b> <%= @character["gender"] %></p>
+		<p><b>Hair color:</b> <%= @character["hair_color"] %></p>
+		<p><b>Height:</b> <%= @character["height"] %></p>
+		<p><b>Mass:</b> <%= @character["mass"] %></p>
+		<p><b>Skin color:</b> <%= @character["skin_color"] %></p>
 
 
-		<p>Homeworld: <% @planets_names %>
+		<p><b>Homeworld:</b> <% @planets_names %>
 					-<a href="/planets/<%= @planets_names[1]%>"><%= @planets_names[0] %></a>
 		</p>
 
-		<p>Films: <% @films_titles.each do |film| %>
+		<p><b>Films:</b> <% @films_titles.each do |film| %>
 					-<a href="/films/<%= film[1]%>"><%= film[0] %></a>
 						<% end %>
 		</p>
 
-		<p>Starships: <% @starships_names.each do |starship| %>
+		<p><b>Starships:</b> <% @starships_names.each do |starship| %>
 					-<a href="/starships/<%= starship[1]%>"><%= starship[0] %></a>
 						<% end %>
 		</p>
 
 
-		<p>URL Source: <%= @character["url"] %></p>
-		<p>Created: <%= @character["created"] %></p>
-		<p>Edited: <%= @character["edited"] %></p>
+		<p><b>URL Source:</b> <%= @character["url"] %></p>
+		<p><b>Created:</b> <%= @character["created"] %></p>
+		<p><b>Edited:</b> <%= @character["edited"] %></p>
 
 
 
