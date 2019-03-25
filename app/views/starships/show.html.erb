@@ -19,34 +19,38 @@
   </div>
 </nav>
 
+
 <div class="jumbotron">
   <div class="container">
 
 
-		<p>Name: <%= @planet["name"] %></p>
-		<p>Diameter: <%= @planet["diameter"] %></p>
-		<p>Rotation Period: <%= @planet["rotation_period"] %></p>
-		<p>Orbital Period: <%= @planet["orbital_period"] %></p>
-		<p>Gravity: <%= @planet["gravity"] %></p>
-		<p>Population: <%= @planet["population"] %></p>
-		<p>Climate: <%= @planet["climate"] %></p>
-		<p>Terrain: <%= @planet["terrain"] %></p>
-		<p>Surface Water: <%= @planet["surface_water"] %></p>
-
-		<p>Residents: <% @characters_names.each do |char| %>
-					-<a href="/characters/<%= char[1]%>"><%= char[0] %></a>
-						<% end %>
-		</p>
+		<p>Name: <%= @starship["name"] %></p>
+		<p>Model: <%= @starship["model"] %></p>
+		<p>Starship class: <%= @starship["starship_class"] %></p>
+		<p>Manufacturer: <%= @starship["manufacturer"] %></p>
+		<p>Cost in credits: <%= @starship["cost_in_credits"] %></p>
+		<p>Length: <%= @starship["length"] %></p>
+		<p>Crew: <%= @starship["crew"] %></p>
+		<p>Passengers: <%= @starship["passengers"] %></p>
+		<p>Max speed: <%= @starship["max_atmosphering_speed"] %></p>
+		<p>Hyperdrive rating: <%= @starship["hyperdrive_rating"] %></p>
+		<p>MGLT: <%= @starship["MGLT"] %></p>
+		<p>Cargo capacity: <%= @starship["cargo_capacity"] %></p>
+		<p>Consumables: <%= @starship["consumables"] %></p>
 
 		<p>Films: <% @films_titles.each do |film| %>
 					-<a href="/films/<%= film[1]%>"><%= film[0] %></a>
 						<% end %>
 		</p>
 
+		<p>Residents: <% @characters_names.each do |char| %>
+					-<a href="/characters/<%= char[1]%>"><%= char[0] %></a>
+						<% end %>
+		</p>
 
-		<p>URL Source: <%= @planet["url"] %></p>
-		<p>Created: <%= @planet["created"] %></p>
-		<p>Edited: <%= @planet["edited"] %></p>
+		<p>URL Source: <%= @starship["url"] %></p>
+		<p>Created: <%= @starship["created"] %></p>
+		<p>Edited: <%= @starship["edited"] %></p>
 
 
   </div>

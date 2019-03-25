@@ -1,3 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Star Wars Movies</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+   
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+
+
+<div class="jumbotron">
+  <div class="container">
+
 
 		<p>Name: <%= @character["name"] %></p>
 		<p>Birth year: <%= @character["birth_year"] %></p>
@@ -7,7 +33,7 @@
 		<p>Height: <%= @character["height"] %></p>
 		<p>Mass: <%= @character["mass"] %></p>
 		<p>Skin color: <%= @character["skin_color"] %></p>
-		<p>Homeworld: <%= @character["homeworld"] %></p>
+
 
 		<p>Homeworld: <% @planets_names %>
 					-<a href="/planets/<%= @planets_names[1]%>"><%= @planets_names[0] %></a>
@@ -27,3 +53,8 @@
 		<p>URL Source: <%= @character["url"] %></p>
 		<p>Created: <%= @character["created"] %></p>
 		<p>Edited: <%= @character["edited"] %></p>
+
+
+
+  </div>
+</div>
