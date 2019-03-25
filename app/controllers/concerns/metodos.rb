@@ -48,26 +48,62 @@ module Metodos
 
 		res_starships = HTTParty.get('https://swapi.co/api/starships/?search='+keyword.to_s, :headers => {'Content-Type' => 'application/json'}).body
 		starships = JSON.parse(res_starships)["results"]
+		iterar = JSON.parse(res_starships)["next"]
+
 		starships.each do |starship|
 			starship_id = get_id(starship["url"])
-			found = [starship["name"],starship_id,"starship"]
+			found = [starship["name"],starship_id,"starships"]
 			lista_res << found
 		end
 
-		res_char = HTTParty.get('https://swapi.co/api/people/?search='+keyword.to_s, :headers => {'Content-Type' => 'application/json'}).body
-		chars = JSON.parse(res_char)["results"]
+		while iterar.present?
+			res_starships = HTTParty.get(iterar+'/?search='+keyword.to_s, :headers => {'Content-Type' => 'application/json'}).body
+			iterar = JSON.parse(res_starships)["next"]
+			starships.each do |starship|
+				starship_id = get_id(starship["url"])
+				found = [starship["name"],starship_id,"starships"]
+				lista_res << found
+		end
+		end
+
+		res_chars = HTTParty.get('https://swapi.co/api/people/?search='+keyword.to_s, :headers => {'Content-Type' => 'application/json'}).body
+		chars = JSON.parse(res_chars)["results"]
+		iterar = JSON.parse(res_chars)["next"]
+
 		chars.each do |char|
 			char_id = get_id(char["url"])
-			found = [char["name"],char_id,"people"]
+			found = [char["name"],char_id,"characters"]
 			lista_res << found
+		end
+
+		while iterar.present?
+			res_char = HTTParty.get(iterar+'/?search='+keyword.to_s, :headers => {'Content-Type' => 'application/json'}).body
+			iterar = JSON.parse(res_chars)["next"]
+			chars.each do |char|
+				char_id = get_id(char["url"])
+				found = [char["name"],char_id,"characters"]
+				lista_res << found
+		end
 		end
 
 		res_planets = HTTParty.get('https://swapi.co/api/planets/?search='+keyword.to_s, :headers => {'Content-Type' => 'application/json'}).body
 		planets = JSON.parse(res_planets)["results"]
+		iterar = JSON.parse(res_planets)["next"]
+
 		planets.each do |planet|
 			planet_id = get_id(planet["url"])
 			found = [planet["name"],planet_id,"planets"]
 			lista_res << found
+		end
+
+		while iterar.present?
+			res_planets = HTTParty.get(iterar+'/?search='+keyword.to_s, :headers => {'Content-Type' => 'application/json'}).body
+			iterar = JSON.parse(res_planets)["next"]
+			planets.each do |planet|
+				planet_id = get_id(planet["url"])
+				found = [planet["name"],planet_id,"planets"]
+				lista_res << found
+		end
 		end
 
 		return lista_res
