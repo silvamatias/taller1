@@ -1,0 +1,31 @@
+<h2>Hello World</h2>
+<p>
+  The time is now: <%= Time.now %>
+</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Pelicula</th>
+			<th>Año</th>
+			<th>Numero</th>
+			<th>Director</th>
+			<th>Productor</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @films.each do |f| %>
+			<tr>
+				<%= film_id = (f["url"].split("/")[-1]).to_i%>
+				<td><a href="/films/<%=film_id%>"><%= f["title"] %> </a><br> </td>
+				<td><%= f["release_date"] %> </td>
+				<td><%= f[ "episode_id"] %> </td>
+				<td><%= f["director"] %> </td>
+				<td><%= f["producer"] %> </td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<br>

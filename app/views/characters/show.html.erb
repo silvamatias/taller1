@@ -1,0 +1,29 @@
+
+		<p>Name: <%= @character["name"] %></p>
+		<p>Birth year: <%= @character["birth_year"] %></p>
+		<p>Eye color: <%= @character["eye_color"] %></p>
+		<p>Gender: <%= @character["gender"] %></p>
+		<p>Hair color: <%= @character["hair_color"] %></p>
+		<p>Height: <%= @character["height"] %></p>
+		<p>Mass: <%= @character["mass"] %></p>
+		<p>Skin color: <%= @character["skin_color"] %></p>
+		<p>Homeworld: <%= @character["homeworld"] %></p>
+
+		<p>Homeworld: <% @planets_names %>
+					-<a href="/planets/<%= @planets_names[1]%>"><%= @planets_names[0] %></a>
+		</p>
+
+		<p>Films: <% @films_titles.each do |film| %>
+					-<a href="/films/<%= film[1]%>"><%= film[0] %></a>
+						<% end %>
+		</p>
+
+		<p>Starships: <% @starships_names.each do |starship| %>
+					-<a href="/starships/<%= starship[1]%>"><%= starship[0] %></a>
+						<% end %>
+		</p>
+
+
+		<p>URL Source: <%= @character["url"] %></p>
+		<p>Created: <%= @character["created"] %></p>
+		<p>Edited: <%= @character["edited"] %></p>

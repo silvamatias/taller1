@@ -1,0 +1,38 @@
+
+
+
+
+		<p>Title: <%= @film["title"] %></p>
+		<p>Episode number: <%= @film["episode_id"] %></p>
+		<p>Opening crawl: <%= @film["opening_crawl"] %></p>
+		<p>Director: <%= @film["director"] %></p>
+		<p>Producer: <%= @film["producer"] %></p>
+		<p>Release date: <%= @film["release_date"] %></p>
+
+
+		<p>Starships: <% @starships_names.each do |starship| %>
+					-<a href="/starships/<%= starship[1]%>"><%= starship[0] %></a>
+						<% end %>
+		</p>
+
+
+		<p>Characters: <% @characters_names.each do |char| %>
+					-<a href="/characters/<%= char[1]%>"><%= char[0] %></a>
+						<% end %>
+		</p>
+
+
+		<p>Planets: <% @planets_names.each do |planet| %>
+					-<a href="/planets/<%= planet[1]%>"><%= planet[0] %></a>
+						<% end %>
+		</p>
+
+
+		<p>URL Source: <%= @film["url"] %></p>
+		<p>Created: <%= @film["created"] %></p>
+		<p>Edited: <%= @film["edited"] %></p>
+
+
+
+
+

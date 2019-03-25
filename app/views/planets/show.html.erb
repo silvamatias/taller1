@@ -1,0 +1,27 @@
+
+
+
+		<p>Name: <%= @planet["name"] %></p>
+		<p>Diameter: <%= @planet["diameter"] %></p>
+		<p>Rotation Period: <%= @planet["rotation_period"] %></p>
+		<p>Orbital Period: <%= @planet["orbital_period"] %></p>
+		<p>Gravity: <%= @planet["gravity"] %></p>
+		<p>Population: <%= @planet["population"] %></p>
+		<p>Climate: <%= @planet["climate"] %></p>
+		<p>Terrain: <%= @planet["terrain"] %></p>
+		<p>Surface Water: <%= @planet["surface_water"] %></p>
+
+		<p>Residents: <% @characters_names.each do |char| %>
+					-<a href="/characters/<%= char[1]%>"><%= char[0] %></a>
+						<% end %>
+		</p>
+
+		<p>Films: <% @films_titles.each do |film| %>
+					-<a href="/films/<%= film[1]%>"><%= film[0] %></a>
+						<% end %>
+		</p>
+
+
+		<p>URL Source: <%= @planet["url"] %></p>
+		<p>Created: <%= @planet["created"] %></p>
+		<p>Edited: <%= @planet["edited"] %></p>
